@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
    
    // examine key routines
    if (argv[1][1]=='e') {
-    printf("signature (8 chars):");
+    printf("signature (10 chars):");
     cin >> signature;
     if (!check_signature()) {
      printf("invalid signature\n");
@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
    
   // generate key routines  
   if (argv[1][1]=='g') { 
-   printf("signature (8 chars):");
+   printf("signature (10 chars):");
    cin >> signature;
    if (!check_signature()) {
     printf("invalid signature\n");

@@ -24,7 +24,7 @@ int examine_key();
 int generate_key();
 void arrange_value_of_specific_array(int size, int goal, char codes[KEY_SIZE]);
 int check_signature();
-int dismissdouble(double param);
+int dismissnondouble(double param);
 
 // main routine
 int main(int argc, char *argv[])
@@ -126,7 +126,6 @@ int examine_key()
    if (i>KEY_SIZE-22)
     i=0;
    // return true if everything is alright
-//    if (total_value==goal_value && key[i+1]==key[1]) 
    if (total_value==goal_value)
     return 1; 
    
@@ -147,7 +146,7 @@ int generate_key()
    goal_value=0;
     while (goal_value<LOW_GOAL || goal_value>HIGH_GOAL)
      goal_value=rand() % HIGH_GOAL; 
-    if (!dismissdouble((double) goal_value/2))
+    if (!dismissnondouble((double) goal_value/2))
      --goal_value;
   
     key_value=0;
@@ -194,8 +193,6 @@ int generate_key()
       while (n<48 || n>126) 
        n=rand() % 126;
      key[i]=(char) n; }
-//      if (i==key_positions[l-1] && key_value==goal_value) 
-//       key[i]=key[1];
     ++i; }  }
 
     // place signature in key from [2] to [13]
@@ -244,7 +241,7 @@ int check_signature()
 }
 
 // dismiss value with decimal part
-int dismissdouble(double param)
+int dismissnondouble(double param)
 {
   double fractpart, intpart;
   
